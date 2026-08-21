@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flamengo - O Mais Querido</title>
+  <style>
+    :root {
+      --vermelho: #c8102e;
+      --preto: #111111;
+      --cinza-escuro: #1f1f1f;
+      --branco: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--preto);
+      color: var(--branco);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--preto), var(--vermelho));
+      padding: 2.5rem 1rem;
+      text-align: center;
+      border-bottom: 4px solid var(--vermelho);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .hero {
+      background-color: var(--cinza-escuro);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 15px rgba(200, 16, 46, 0.2);
+    }
+
+    .hero h2 {
+      color: var(--vermelho);
+      margin-bottom: 0.5rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background-color: var(--cinza-escuro);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-top: 3px solid var(--vermelho);
+    }
+
+    .card h3 {
+      margin-bottom: 0.5rem;
+      color: var(--vermelho);
+    }
+
+    .interactive-section {
+      text-align: center;
+      background-color: var(--cinza-escuro);
+      padding: 2rem;
+      border-radius: 12px;
+    }
+
+    button {
+      background-color: var(--vermelho);
+      color: var(--branco);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 1rem;
+    }
+
+    button:hover {
+      background-color: #a00c23;
+    }
+
+    #fact-display {
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: #ffcccc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: var(--preto);
+      border-top: 1px solid var(--cinza-escuro);
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Clube de Regatas do Flamengo</h1>
+    <p>O Mais Querido do Brasil</p>
+  </header>
+
+  <div class="container">
+    <section class="hero">
+      <h2>Uma Nação com mais de 45 milhões</h2>
+      <p>Fundado em 1895 no Rio de Janeiro, o Flamengo é uma das maiores potências do futebol mundial.</p>
+    </section>
+
+    <div class="cards">
+      <div class="card">
+        <h3>História</h3>
+        <p>Iniciado como um clube de remo no bairro do Flamengo, transformou-se em uma lenda do futebol global.</p>
+      </div>
+
+      <div class="card">
+        <h3>Principais Títulos</h3>
+        <p>Mundial Interclubes, Libertadores da América, Campeonato Brasileiro, Copa do Brasil e dezenas de Cariocas.</p>
+      </div>
+
+      <div class="card">
+        <h3>Estádio</h3>
+        <p>O lendário Maracanã é o templo onde a Nação Rubro-Negra faz a festa e empurra o time.</p>
+      </div>
+    </div>
+
+    <section class="interactive-section">
+      <h3>Curiosidades Rubro-Negras</h3>
+      <p>Clique no botão para ver uma curiosidade sobre o Mengão:</p>
+      <button id="fact-btn">Gerar Curiosidade</button>
+      <p id="fact-display">Clique acima para começar!</p>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; Site dedicado à Nação Rubro-Negra — Criado com HTML, CSS e JavaScript.</p>
+  </footer>
+
+  <script>
+    const facts = [
+      "O Flamengo foi fundado originalmente como um clube de remo em 17 de novembro de 1895.",
+      "As cores originais do clube eram ouro e azul, mas foram mudadas para vermelho e preto em 1896.",
+      "O maior artilheiro da história do Flamengo é Zico, com 509 gols anotados pelo clube.",
+      "O Urubu tornou-se mascote oficial em 1969, após torcedores soltarem a ave no Maracanã em um clássico contra o Botafogo.",
+      "Em 1981, o Flamengo conquistou a Taça Libertadores e o Mundial Interclubes vencendo o Liverpool por 3 a 0."
+    ];
+
+    const btn = document.getElementById('fact-btn');
+    const display = document.getElementById('fact-display');
+
+    btn.addEventListener('click', () => {
+      const randomIndex = Math.floor(Math.random() * facts.length);
+      display.textContent = facts[randomIndex];
+    });
+  </script>
+</body>
+</html>
